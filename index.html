@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>四千周人生可视化</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-shape bg-shape-a" aria-hidden="true"></div>
+    <div class="bg-shape bg-shape-b" aria-hidden="true"></div>
+
+    <main class="app">
+      <header class="hero">
+        <p class="eyebrow">Four Thousand Weeks</p>
+        <h1>人的一生，大约只有 4000 周</h1>
+        <p class="subtitle">
+          输入你的生日，查看 4000 周人生时间轴，并看到今天之前已经走过了多少周。
+        </p>
+      </header>
+
+      <section class="panel" aria-label="输入与统计">
+        <form id="life-form" class="controls">
+          <label for="birthday">生日</label>
+          <input id="birthday" name="birthday" type="date" required />
+          <button type="submit">绘制时间轴</button>
+        </form>
+
+        <div id="stats" class="stats" aria-live="polite">
+          <div class="stat-card">
+            <p class="label">总周数</p>
+            <p id="total-weeks" class="value">4000</p>
+          </div>
+          <div class="stat-card">
+            <p class="label">已度过</p>
+            <p id="lived-weeks" class="value">-</p>
+          </div>
+          <div class="stat-card">
+            <p class="label">剩余周数</p>
+            <p id="remaining-weeks" class="value">-</p>
+          </div>
+          <div class="stat-card">
+            <p class="label">进度</p>
+            <p id="progress" class="value">-</p>
+          </div>
+        </div>
+
+        <p id="message" class="message">
+          以一周为单位，左上角开始按行排列。每个方块代表你生命中的一周。
+        </p>
+      </section>
+
+      <section class="legend" aria-label="图例">
+        <span><i class="dot lived"></i>已度过</span>
+        <span><i class="dot future"></i>未来</span>
+      </section>
+
+      <section class="grid-wrap" aria-label="四千周网格">
+        <div id="weeks-grid" class="weeks-grid"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
